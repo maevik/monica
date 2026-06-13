@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package proto;
+
+service MetricService {
+  rpc StreamUsage(MetricPayload) returns (MetricResponse);
+}
+
+message MetricPayload {
+  string id = 1;
+  float cpu = 2;
+  float mem = 3;
+  float disk = 4;
+  float inbound = 5;
+  float outbound = 6;
+  string timestamp = 7;
+}
+
+message MetricResponse {
+  bool success = 1;
+  string message = 2;
+}
+
