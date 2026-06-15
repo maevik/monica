@@ -1,5 +1,10 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import Login from './pages/Login.vue'
+import Register from './pages/Register.vue'
+
+</script>
+
 <template>
-  <div>
-    <h1>Work In Progress</h1>
-  </div>
+  <router-view />
 </template>

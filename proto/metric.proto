@@ -20,4 +20,3 @@ message MetricResponse {
   bool success = 1;
   string message = 2;
 }
-

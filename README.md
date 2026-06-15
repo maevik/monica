@@ -6,7 +6,13 @@ A lightweight, self-hosted monitoring platform designed for monitoring system he
 
 Work in Progress: Monica is currently under active development.
 
-## Project Architecture
+## Project Architecture 
+
+1. Node: A tiny background worker that you drop into any server you want to monitor. It quietly reads system stats and streams them out.
+
+2. Server: A central server which handles concurrent gRPC metrics ingestion for incoming data from all of the nodes.
+
+3. Dashboard: The frontend web interface. It request to the server to catch metrics and update your charts without any page refreshes.
 
 ```
 monica/
@@ -16,13 +22,7 @@ monica/
 └── server/ # gRPC ingest and processing
 ```
 
-1. Node: A tiny background worker that you drop into any server you want to monitor. It quietly reads system stats and streams them out.
-
-2. Server: A central server which handles concurrent gRPC metrics ingestion for incoming data from all of the nodes.
-
-3. Dashboard: The frontend web interface. It request to the server to catch metrics and update your charts without any page refreshes.
-
-### Why gRPC and Push?
+## Why gRPC and Push?
 
 Monitoring tools use a "pull-based" where a central server constantly scrapes targets for data. Monica changes it with a "push-based" architecture.
 
